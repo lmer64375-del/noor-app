@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102d28">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="نور الذكر - تطبيق للأذكار والتسبيح والاستماع">
+  <title>نور الذكر | NOOR AL-DHIKR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header">
+  <div class="topbar">
+    <a class="brand" href="#" aria-label="Noor Al-Dhikr home">
+      <span class="brand-mark">☾</span>
+      <span><strong data-i18n="brand">نور الذكر</strong><small>NOOR AL-DHIKR</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeBtn" title="Theme" aria-label="Toggle theme">☼</button>
+      <button class="lang-btn" id="langBtn">EN</button>
+    </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="welcome">مساحة هادئة لذكر الله</span>
+          <h1 data-i18n="heroTitle">وَاذْكُرُوا اللَّهَ كَثِيرًا</h1>
+          <p data-i18n="heroText">اجعل لروحك نصيباً من السكينة… ذكرٌ تقرؤه أو تستمع إليه، في كل وقت.</p>
+        </div>
+        <div class="hero-info">
+          <div class="date-line" aria-live="polite"><span id="hijriDate"></span><i>•</i><span id="gregDate"></span></div>
+          <div class="prayer-panel">
+            <div class="prayer-head"><span id="locLabel"></span><span class="head-btns"><button class="mini-btn" id="notifyBtn" type="button">🔕</button><button class="mini-btn" id="testBtn" type="button" title="Test">🧪</button><button class="mini-btn" id="locBtn" type="button">📍</button></span></div>
+            <div class="prayer-grid" id="prayerGrid"></div>
+            <div class="qibla-row"><div class="qibla-dial" id="qiblaDial" aria-hidden="true"><b>N</b><i id="qiblaNeedle"></i></div><div class="qibla-info"><strong id="qiblaText"></strong><small id="qiblaHint"></small></div><button class="mini-btn" id="compassBtn" type="button">🧭</button></div>
+            <div class="prayer-foot"><strong id="nextPrayer"></strong><select id="methodSelect" aria-label="Calculation method"></select></div>
+          </div>
+          <div class="ramadan-box" id="ramadanBox" hidden>
+            <strong id="rdTitle"></strong>
+            <div class="rd-count" id="rdCount"></div>
+            <small id="rdNote"></small>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="moon"></div><div class="arch"><div class="arch-inner"></div></div>
+        <div class="lantern lantern-a">✧</div><div class="lantern lantern-b">✧</div>
+        <div class="star star-a">✦</div><div class="star star-b">✧</div>
+      </div>
+      <div class="hero-verse"><span>﴿</span><strong>أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</strong><span>﴾</span><small>سورة الرعد · ٢٨</small></div>
+    </section>
+
+    <section class="section-heading">
+      <div><span class="eyebrow" data-i18n="yourWorship">عِبادتك اليومية</span><h2 data-i18n="sections">ماذا نقرأ اليوم؟</h2></div>
+      <span class="date-pill" id="todayDate"></span>
+    </section>
+
+    <nav class="nav-grid" aria-label="Sections">
+      <button class="nav-card mushaf-card" data-page="mushaf"><span class="mushaf-text"><strong data-i18n="mushaf">المصحف الشريف</strong><small data-i18n="mushafSub">القرآن الكريم · فهرس السور</small></span></button>
+      <button class="nav-card active" data-page="morning"><span class="nav-icon">☀</span><strong data-i18n="morning">أذكار الصباح</strong><small data-i18n="morningSub">ابدأ يومك بالذكر</small></button>
+      <button class="nav-card" data-page="evening"><span class="nav-icon">☾</span><strong data-i18n="evening">أذكار المساء</strong><small data-i18n="eveningSub">اختم يومك بالسكينة</small></button>
+      <button class="nav-card" data-page="tasbih"><span class="nav-icon">۞</span><strong data-i18n="tasbih">المسبحة</strong><small data-i18n="tasbihSub">سبّح واستغفر</small></button>
+      <button class="nav-card" data-page="library"><span class="nav-icon">❋</span><strong data-i18n="library">مكتبة الأذكار</strong><small data-i18n="librarySub">أذكار منوعة</small></button>
+      <button class="nav-card" data-page="favorites"><span class="nav-icon">♡</span><strong data-i18n="favorites">المفضلة</strong><small data-i18n="favoritesSub">أذكارك المحفوظة</small></button>
+    </nav>
+
+    <section id="contentArea" class="content-area">
+      <div class="section-heading compact"><div><span class="eyebrow" data-i18n="dailyRemembrance">ورد اليوم</span><h2 id="pageTitle">أذكار الصباح</h2></div><div class="heading-tools"><button class="ghost-btn play-all" id="playAllBtn">▶ استمع إلى السلسلة</button><span class="progress-label" id="progressLabel">0 / 3</span></div></div>
+      <div class="chips" id="chips" role="group" aria-label="Categories" hidden></div>
+      <div class="progress-track"><span id="progressBar"></span></div>
+      <div id="dhikrList" class="dhikr-list"></div>
+    </section>
+
+    <section class="mushaf-panel" id="mushafPanel" hidden>
+      <div class="mushaf-tabs" role="tablist">
+        <button class="mtab active" data-mtab="mushaf" type="button"><span>📖</span><b data-i18n="mushaf">المصحف الشريف</b></button>
+        <button class="mtab" data-mtab="reading" type="button"><span>📚</span><b data-i18n="reading">القراءة</b></button>
+        <button class="mtab" data-mtab="favsuras" type="button"><span>🔖</span><b data-i18n="favSuras">سور مفضلة</b></button>
+      </div>
+      <button class="continue-card" id="continueCard" type="button">
+        <div class="continue-text"><small data-i18n="mushaf">المصحف الشريف</small><strong id="contName">سورة البقرة</strong><span id="contSub">متابعة القراءة · آية 22</span></div>
+        <i class="continue-go">›</i>
+      </button>
+      <div class="sura-list" id="suraList"></div>
+    </section>
+
+    <section class="tasbih-panel" id="tasbihPanel" hidden>
+      <div class="tasbih-info"><span class="eyebrow" data-i18n="digitalTasbih">المسبحة الإلكترونية</span><h2 data-i18n="takeBreath">خذ لحظة للذكر</h2><p data-i18n="tasbihHint">اختر الذكر، ثم المس الدائرة مع كل تسبيحة.</p>
+        <select id="tasbihSelect" aria-label="Choose remembrance">
+          <option value="سبحان الله">سبحان الله</option><option value="الحمد لله">الحمد لله</option><option value="الله أكبر">الله أكبر</option><option value="أستغفر الله">أستغفر الله</option><option value="لا إله إلا الله">لا إله إلا الله</option>
+        </select>
+      </div>
+      <button class="counter-orb" id="countBtn"><span class="orb-label" data-i18n="tapToCount">اضغط للتسبيح</span><strong id="countNumber">0</strong><small id="countPhrase">سبحان الله</small></button>
+      <div class="counter-tools"><button class="ghost-btn" id="resetCount" data-i18n="reset">إعادة ضبط</button><span id="roundCount">0 / 33</span><button class="ghost-btn" id="targetBtn" data-i18n="target">الهدف: 33</button></div>
+    </section>
+
+    <footer class="site-footer"><div class="footer-inner"><span>☾</span><strong>NOOR AL-DHIKR</strong><small data-i18n="footer">صُنع بمحبة · L-DESIGN DZ</small></div></footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script>
+  <script src="suras.js"></script>
+  <script src="app.js"></script>
+  <script src="prayer.js"></script>
+</body>
+</html>

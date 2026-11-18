@@ -1,0 +1,6 @@
+{
+  "appId": "com.ldesigndz.noor",
+  "appName": "نور الذكر",
+  "webDir": "www",
+  "android": { "backgroundColor": "#102d28" }
+}

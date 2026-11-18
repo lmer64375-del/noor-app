@@ -1,0 +1,27 @@
+NOOR AL-DHIKR — Notifications de prière app FERMÉE (APK Android)
+
+Pourquoi un APK ? Une page web ne peut pas être réveillée par le téléphone à l'heure exacte.
+Dans l'APK, le système Android programme lui-même les 5 prières (30 jours à l'avance, avec le son
+assets/audio/noor_adhan.wav) : la notification sonne même si l'app est fermée.
+Elle est reprogrammée à chaque ouverture de l'app (position / méthode / langue modifiées).
+
+Prérequis sur le PC : Node.js 18+ et Android Studio (Java inclus).
+
+1) Dans ce dossier :
+   npm install
+   npm run www
+   npx cap add android
+   npm run sync
+2) npx cap open android   → Android Studio : Build > Build APK(s)   (ou le bouton Run avec le téléphone branché)
+3) Sur le téléphone, ouvre l'app, appuie sur 🔕 (cloche) pour activer :
+   - accepte « Notifications »
+   - accepte « Alarmes et rappels » (alarmes exactes) quand Android le demande
+   - Réglages Android > Applis > Noor > Batterie : « Sans restriction » (Xiaomi/Samsung/Huawei tuent sinon l'app)
+
+Changer le son : remplace assets/audio/noor_adhan.wav par ton propre fichier .wav (même nom),
+puis relance « npm run sync ». Si tu changes le son après une 1re installation, désinstalle l'app avant
+(Android garde le son du canal de notification).
+
+IMPORTANT après mise à jour : DÉSINSTALLE l'ancienne app du téléphone avant d'installer la nouvelle,
+puis rouvre l'app, appuie sur la cloche : un message doit afficher « N alertes programmées ».
+Si le message dit « تفعيل التنبيه ... ثبّت نسخة التطبيق (APK) », tu es dans le navigateur/PWA, pas dans l'APK.
